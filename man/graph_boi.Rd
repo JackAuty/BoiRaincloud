@@ -2,22 +2,28 @@
 % Please edit documentation in R/Graphfunctions.R
 \name{graph_boi}
 \alias{graph_boi}
-\title{Raincloud plot}
+\title{Create a histogram of p-values}
 \usage{
-graph_boi(x, y)
+graph_boi(df, column)
 }
 \arguments{
-\item{x}{numerical vector}
+\item{df}{A dataframe or vector containing p-values}
 
-\item{y}{character or factor vector on how to split the data}
+\item{column}{The name of the column containing p-values (if df is a dataframe)}
 }
 \value{
-Plot of x vs y
+A ggplot object representing the histogram of p-values
 }
 \description{
-Raincloud plot
+This function creates a histogram of p-values from either a dataframe column or a vector.
+It highlights significant p-values (< 0.05) and provides a count of significant results.
 }
 \examples{
-x <- c(1, 2, 3, 4)
-y <- c("a", "a", "b", "b")
+# Using a dataframe
+df <- data.frame(p_vals = runif(100))
+graph_boi(df, "p_vals")
+
+# Using a vector
+p_values <- runif(100)
+graph_boi(p_values)
 }
