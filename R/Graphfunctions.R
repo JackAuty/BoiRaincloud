@@ -20,8 +20,8 @@
 #'
 #' # Using a vector
 #' p_values <- runif(100)
-#' graph_boi(p_values)
-graph_boi <- function(df, column) {
+#' boi_hist(p_values)
+boi_hist <- function(df, column) {
   if(is.data.frame(df)){
     print("dataframe provided")
     df <- as.data.frame(df[,column])
